@@ -44,6 +44,8 @@ CREATE TABLE AuditCustomer
  /* We'll need two triggers - 
  one for INSERT and one for DELETE operations. */
 
+/* Insert Trigger */
+
 CREATE TRIGGER tr_ins_customer_order 
 ON source_jhalak.dbo.CustomerOrder 
 AFTER INSERT
@@ -68,6 +70,8 @@ BEGIN
       ModifiedDate = GETDATE()
   WHERE CustomerID = @CustomerID;
 END;
+
+/* Delete Trigger */
 
 CREATE TRIGGER tr_del_customer_order
 ON source_jhalak.dbo.CustomerOrder
